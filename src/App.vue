@@ -1,15 +1,14 @@
-
 <template>
   <div class="container">
     <Header title="Task Tracker" />
     <Tasks
+      :tasks="tasks"
       @toggle-reminder="ToggleReminder"
       @delete-task="deleteTask"
-      :tasks="tasks"
     />
   </div>
 </template>
-<script >
+<script>
 import Header from "./components/Header.vue";
 import Tasks from "./components/Tasks.vue";
 export default {
@@ -51,15 +50,14 @@ export default {
     },
     ToggleReminder(id) {
       this.tasks = this.tasks.map((task) =>
-        task.id === id ? { ...task, reminder: !task.reminder } : task
+        task.id === id ? { ...task, reminder: !task.reminder } : task,
       );
     },
   },
 };
 </script>
 
-
-<style >
+<style>
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap");
 
 * {
