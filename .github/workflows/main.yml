@@ -6,11 +6,13 @@ on:
       environment:
         description: 'Environment to run tests against'
         default: 'dev'
+        required: true
+        type: choice
         options:
           - dev
           - prod
           - staging
-  jobs:
+jobs:
   code:
     runs-on: ubuntu-latest
     steps:
