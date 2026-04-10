@@ -1,5 +1,5 @@
 
-name: Run on Push to Main
+name: CI/CD
 on:
   workflow_dispatch: null
 jobs:
