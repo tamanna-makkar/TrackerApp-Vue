@@ -1,8 +1,16 @@
 
 name: CI/CD
 on:
-  workflow_dispatch: null
-jobs:
+  workflow_dispatch:
+    inputs:
+        environment:
+         description: 'Environment to run tests against'
+         default: 'dev'
+         options:
+           - dev
+           - prod
+           - staging
+  jobs:
   code:
     runs-on: ubuntu-latest
     steps:
