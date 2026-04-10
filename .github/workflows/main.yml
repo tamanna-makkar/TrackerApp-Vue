@@ -8,5 +8,5 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - run: echo "Code pushed to main branch!"
+      - name: Say hello to username
+      - run: echo "Hello $USER"
