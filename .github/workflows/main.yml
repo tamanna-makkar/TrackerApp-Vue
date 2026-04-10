@@ -9,4 +9,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Say hello to username
-      - run: echo "Hello $USER"
+        run: echo "Hello $USER"
