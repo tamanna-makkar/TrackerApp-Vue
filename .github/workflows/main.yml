@@ -1,8 +1,7 @@
+
 name: Run on Push to Main
-
 on:
-  workflow_dispatch: 
-
+  workflow_dispatch: null
 jobs:
   code:
     runs-on: ubuntu-latest
@@ -10,17 +9,17 @@ jobs:
       - name: checkout code
         run: echo "Code cloned from the github"
   build:
-     runs-on: ubuntu-latest
-      steps:
+    runs-on: ubuntu-latest
+    steps:
       - name: Build docker container
         run: echo "Docker container build"
   test:
     runs-on: ubuntu-latest
-      steps:
+    steps:
       - name: Test the container
         run: echo "Testing the container"
   deploy:
     runs-on: ubuntu-latest
-      steps:
+    steps:
       - name: Build docker container
         run: echo "Docker container build"
