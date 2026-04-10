@@ -1,12 +1,29 @@
 name: Run on Push to Main
 
 on:
-  push:
-    branches: [main]
+  workflow_dispatch: 
 
 jobs:
-  build:
+  code:
     runs-on: ubuntu-latest
     steps:
-      - name: Say hello to username
-        run: echo "Hello $USER"
+      - name: checkout code
+        run: echo "Code cloned from the github"
+  build:
+     needs: [build]
+     runs-on: ubuntu-latest
+      steps:
+      - name: Build docker container
+        run: echo "Docker container build"
+  test:
+    needs: [build]
+    runs-on: ubuntu-latest
+      steps:
+      - name: Test the container
+        run: echo "Testing the container"
+  deploy:
+    needs: [test]
+    runs-on: ubuntu-latest
+      steps:
+      - name: Build docker container
+        run: echo "Docker container build"
