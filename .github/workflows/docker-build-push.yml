@@ -29,7 +29,7 @@ jobs:
           context: .
           push: true
           tags: |
-            ${{ vars.DOCKER_HUB_USERNAME }}/${{ github.repository }}:${{ github.ref_name }}
-            ${{ vars.DOCKER_HUB_USERNAME }}/${{ github.repository }}:${{ github.sha }}
+            ${{ vars.DOCKER_HUB_USERNAME }}/vue-tracker-app:${{ github.ref_name }}
+            ${{ vars.DOCKER_HUB_USERNAME }}/vue-tracker-app:${{ github.sha }}
       - name: Push docker container to registry
         run: echo "Pushing the container to registry"
