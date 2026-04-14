@@ -1,11 +1,10 @@
-
 name: CI/CD
 on:
   workflow_dispatch:
     inputs:
       environment:
-        description: 'Environment to run tests against'
-        default: 'dev'
+        description: "Environment to run tests against"
+        default: "dev"
         required: true
         type: choice
         options:
@@ -19,13 +18,13 @@ jobs:
       - name: checkout code
         run: echo "Code cloned from the github"
   build:
-    needs: [code] 
+    needs: [code]
     runs-on: ubuntu-latest
     steps:
       - name: Build docker container
         run: echo "Docker container build"
   test:
-    needs: [build] 
+    needs: [build]
     runs-on: ubuntu-latest
     steps:
       - name: Test the container
