@@ -29,7 +29,7 @@ jobs:
           context: .
           push: true
           tags: |
-            ${{ vars.DOCKER_HUB_USERNAME }}/${{ vars.GITHUB_REPOSITORY }}:${{ github.GITHUB_HEAD_REF}}
-            ${{ vars.DOCKER_HUB_USERNAME }}/${{ vars.GITHUB_REPOSITORY }}:${{ github.GITHUB_SHA }}
+            ${{ vars.DOCKER_HUB_USERNAME }}/${{ github.repository }}:${{ github.ref_name }}
+            ${{ vars.DOCKER_HUB_USERNAME }}/${{ github.repository }}:${{ github.sha }}
       - name: Push docker container to registry
         run: echo "Pushing the container to registry"
