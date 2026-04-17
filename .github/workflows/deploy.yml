@@ -11,11 +11,13 @@ on:
           - dev
           - prod
           - staging
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
 jobs:
   deploy:
     env:
       DOCKERHUB_USERNAME: ${{ vars.DOCKER_HUB_USERNAME }}
-      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
     runs-on: self-hosted
     steps:
       - name: Checkout code
