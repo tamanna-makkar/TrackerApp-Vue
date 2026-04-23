@@ -13,10 +13,10 @@
 <script>
 export default {
   name: "Task",
-  emits: ["toggle-reminder", "delete-task"],
   props: {
     task: Object,
   },
+  emits: ["toggle-reminder", "delete-task"],
   // methods: {
   //   onDeleted(id) {
   //     this.$emit("delete-task", id);
