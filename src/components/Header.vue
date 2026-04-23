@@ -1,16 +1,9 @@
-
-
-
 <template lang="">
   <header>
     <h1>{{ title }}</h1>
-    <Button
-      text="Add TasK"
-      color="green"
-    />
+    <Button text="Add TasK" color="green" />
   </header>
 </template>
-
 
 <script>
 import Button from "./Button.vue";

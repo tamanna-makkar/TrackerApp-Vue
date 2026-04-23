@@ -5,10 +5,7 @@
   >
     <h3>
       {{ task.text }}
-      <i
-        class="far fa-times-circle"
-        @click="$emit('delete-task', task.id)"
-      />
+      <i class="far fa-times-circle" @click="$emit('delete-task', task.id)" />
     </h3>
     <p>{{ task.day }}</p>
   </div>
@@ -16,6 +13,7 @@
 <script>
 export default {
   name: "Task",
+  emits: ["toggle-reminder", "delete-task"],
   props: {
     task: Object,
   },

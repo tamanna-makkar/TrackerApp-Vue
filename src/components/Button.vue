@@ -1,9 +1,5 @@
 <template>
-  <button
-    :style="{ background: color }"
-    class="btn"
-    @click="oneCliCK()"
-  >
+  <button :style="{ background: color }" class="btn" @click="oneCliCK()">
     {{ text }}
   </button>
 </template>
@@ -13,19 +9,18 @@ export default {
   props: {
     text: {
       type: String,
-      default:"Add Task",
+      default: "Add Task",
     },
     color: {
       type: String,
-      default:"Green",
+      default: "Green",
     },
   },
-  methods:{
-    oneCliCK(){
-        alert('THIS IS')
-    }
-  }
+  methods: {
+    oneCliCK() {
+      alert("THIS IS");
+    },
+  },
 };
 </script>
-<style lang="css">
-</style>
+<style lang="css"></style>

@@ -1,5 +1,5 @@
 services:
-  web: 
+  web:
     image: ${DOCKERHUB_USERNAME}/vue-tracker-app:main
     ports:
       - "4173:4173"
