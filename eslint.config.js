@@ -12,6 +12,7 @@ export default [
       "vue/no-reserved-component-names": "off",
       "vue/require-default-prop": "off",
       "vue/require-explicit-emits": "warn",
+      "vue/max-attributes-per-line": "off",
     },
   },
   {
