@@ -1,5 +1,11 @@
-<template >
-  <button @click="oneCliCK()" :style="{ background: color }" class="btn">{{ text }}</button>
+<template>
+  <button
+    :style="{ background: color }"
+    class="btn"
+    @click="oneCliCK()"
+  >
+    {{ text }}
+  </button>
 </template>
 <script>
 export default {
