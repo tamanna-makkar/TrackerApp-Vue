@@ -1,3 +1,4 @@
+# code-quality.yml, sql-injection and code-smells
 name: Code Quality
 
 on:
