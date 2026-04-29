@@ -2,6 +2,7 @@ name: DevSecOps Pipeline
 on:
   workflow_dispatch:
 jobs:
+  # CI jobs for code quality, secret scanning, dependency scanning, and Dockerfile linting
   code-quality:
     uses: ./.github/workflows/code-quality.yml
   secret-scan:
@@ -10,3 +11,8 @@ jobs:
     uses: ./.github/workflows/dependency-scan.yml
   docker-lint:
     uses: ./.github/workflows/docker-lint.yml
+  # CD job for building and scanning Docker images
+  build:
+    needs: [code-quality, secret-scan, dependency-scan, docker-lint]
+    uses: ./.github/workflows/docker-build-push.yml
+    secrets: inherit
