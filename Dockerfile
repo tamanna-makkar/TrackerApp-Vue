@@ -1,26 +1,24 @@
-FROM node:23.11.1-alpine
+# Stage 1 - Builder
+# Uses Node.js to install dependencies and build the Vue app
+FROM node:23.11.1-alpine AS builder
 
-# make the 'app' folder the current working directory
 WORKDIR /app
 
-# copy both 'package.json' and 'package-lock.json' (if available)
 COPY package.json package-lock.json* /app/
 
-# install project dependencies
 RUN npm install
 
-# copy project files and folders to the current working directory (i.e. 'app' folder)
 COPY . /app
 
-#RUN
 RUN npm run build
 
-EXPOSE 4173
+# Stage 2 - Runner
+# Copies only the built dist/ folder into a clean nginx image
+# No Node.js, no npm, no source code — just static files served by nginx
+FROM nginx:alpine
 
-# Run vite preview server, binding to 0.0.0.0 (all interfaces) so Docker
-# can forward traffic from host machine. Without --host 0.0.0.0, Vite defaults
-# to 127.0.0.1 (localhost inside container) which blocks external connections.
-CMD ["npm", "run", "preview", "--", "--host", "0.0.0.0", "--port", "4173"]
+COPY --from=builder /app/dist /usr/share/nginx/html
 
+EXPOSE 80
 
-
+CMD ["nginx", "-g", "daemon off;"]
