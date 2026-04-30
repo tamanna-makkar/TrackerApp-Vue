@@ -1,7 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 880" width="520" height="880" font-family="Segoe UI, Arial, sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 950" width="520" height="950" font-family="Segoe UI, Arial, sans-serif">
 
   <!-- Background -->
-  <rect width="520" height="880" fill="#0f1117" rx="16"/>
+  <rect width="520" height="950" fill="#0f1117" rx="16"/>
 
   <!-- Title -->
   <text x="260" y="38" text-anchor="middle" fill="#ffffff" font-size="16" font-weight="bold">CI/CD Pipeline Flow</text>
@@ -24,7 +24,7 @@
 
   <!-- CI Label -->
   <text x="52" y="232" fill="#4FC3F7" font-size="12" font-weight="bold">CI</text>
-  <line x1="52" y1="236" x2="52" y2="490" stroke="#4FC3F7" stroke-width="1.5" stroke-dasharray="4,3"/>
+  <line x1="52" y1="236" x2="52" y2="553" stroke="#4FC3F7" stroke-width="1.5" stroke-dasharray="4,3"/>
 
   <!-- Code Quality -->
   <rect x="90" y="220" width="340" height="44" rx="8" fill="#1565C0"/>
@@ -50,52 +50,60 @@
   <line x1="260" y1="390" x2="260" y2="404" stroke="#555" stroke-width="1.5"/>
   <polygon points="260,409 256,401 264,401" fill="#555"/>
 
-  <!-- Build & Push -->
-  <rect x="90" y="409" width="340" height="44" rx="8" fill="#E65100"/>
-  <text x="260" y="427" text-anchor="middle" fill="#fff" font-size="12" font-weight="bold">Build &amp; Push</text>
-  <text x="260" y="444" text-anchor="middle" fill="#FFE0B2" font-size="10">docker build · tag · push</text>
+  <!-- Docker Lint -->
+  <rect x="90" y="409" width="340" height="44" rx="8" fill="#00695C"/>
+  <text x="260" y="427" text-anchor="middle" fill="#fff" font-size="12" font-weight="bold">Docker Lint</text>
+  <text x="260" y="444" text-anchor="middle" fill="#B2DFDB" font-size="10">Hadolint · Dockerfile best practices</text>
 
-  <line x1="260" y1="453" x2="260" y2="474" stroke="#555" stroke-width="2"/>
-  <polygon points="260,481 255,471 265,471" fill="#555"/>
+  <line x1="260" y1="453" x2="260" y2="467" stroke="#555" stroke-width="1.5"/>
+  <polygon points="260,472 256,464 264,464" fill="#555"/>
+
+  <!-- Build & Push -->
+  <rect x="90" y="472" width="340" height="44" rx="8" fill="#E65100"/>
+  <text x="260" y="490" text-anchor="middle" fill="#fff" font-size="12" font-weight="bold">Build &amp; Push</text>
+  <text x="260" y="507" text-anchor="middle" fill="#FFE0B2" font-size="10">docker build · tag · push</text>
+
+  <line x1="260" y1="516" x2="260" y2="537" stroke="#555" stroke-width="2"/>
+  <polygon points="260,544 255,534 265,534" fill="#555"/>
 
   <!-- CD Label -->
-  <text x="52" y="498" fill="#A5D6A7" font-size="12" font-weight="bold">CD</text>
-  <line x1="52" y1="502" x2="52" y2="790" stroke="#A5D6A7" stroke-width="1.5" stroke-dasharray="4,3"/>
+  <text x="52" y="561" fill="#A5D6A7" font-size="12" font-weight="bold">CD</text>
+  <line x1="52" y1="565" x2="52" y2="853" stroke="#A5D6A7" stroke-width="1.5" stroke-dasharray="4,3"/>
 
   <!-- Docker Image -->
-  <rect x="160" y="481" width="200" height="52" rx="10" fill="#2496ED"/>
-  <text x="260" y="502" text-anchor="middle" fill="#fff" font-size="13" font-weight="bold">🐳 Docker Image</text>
-  <text x="260" y="521" text-anchor="middle" fill="#fff" font-size="11">versioned + latest</text>
+  <rect x="160" y="544" width="200" height="52" rx="10" fill="#2496ED"/>
+  <text x="260" y="565" text-anchor="middle" fill="#fff" font-size="13" font-weight="bold">🐳 Docker Image</text>
+  <text x="260" y="584" text-anchor="middle" fill="#fff" font-size="11">versioned + latest</text>
 
-  <line x1="260" y1="533" x2="260" y2="554" stroke="#555" stroke-width="2"/>
-  <polygon points="260,561 255,551 265,551" fill="#555"/>
+  <line x1="260" y1="596" x2="260" y2="617" stroke="#555" stroke-width="2"/>
+  <polygon points="260,624 255,614 265,614" fill="#555"/>
 
   <!-- Container Registry -->
-  <rect x="160" y="561" width="200" height="52" rx="10" fill="#0D47A1"/>
-  <text x="260" y="582" text-anchor="middle" fill="#fff" font-size="13" font-weight="bold">Container Registry</text>
-  <text x="260" y="600" text-anchor="middle" fill="#90CAF9" font-size="11">Docker Hub</text>
+  <rect x="160" y="624" width="200" height="52" rx="10" fill="#0D47A1"/>
+  <text x="260" y="645" text-anchor="middle" fill="#fff" font-size="13" font-weight="bold">Container Registry</text>
+  <text x="260" y="663" text-anchor="middle" fill="#90CAF9" font-size="11">Docker Hub</text>
 
-  <line x1="260" y1="613" x2="260" y2="634" stroke="#555" stroke-width="2"/>
-  <polygon points="260,641 255,631 265,631" fill="#555"/>
+  <line x1="260" y1="676" x2="260" y2="697" stroke="#555" stroke-width="2"/>
+  <polygon points="260,704 255,694 265,694" fill="#555"/>
 
-  <!-- Kubernetes / Orchestration -->
-  <rect x="160" y="641" width="200" height="62" rx="10" fill="#326CE5"/>
-  <text x="260" y="679" text-anchor="middle" fill="#fff" font-size="12">Kubernetes · AWS ECS · Azure AKS</text>
+  <!-- Kubernetes -->
+  <rect x="160" y="704" width="200" height="52" rx="10" fill="#326CE5"/>
+  <text x="260" y="735" text-anchor="middle" fill="#fff" font-size="11">Kubernetes · AWS ECS · Azure AKS</text>
 
-  <line x1="260" y1="703" x2="260" y2="724" stroke="#555" stroke-width="2"/>
-  <polygon points="260,731 255,721 265,721" fill="#555"/>
+  <line x1="260" y1="756" x2="260" y2="777" stroke="#555" stroke-width="2"/>
+  <polygon points="260,784 255,774 265,774" fill="#555"/>
 
   <!-- Load Balancer -->
-  <rect x="160" y="731" width="200" height="52" rx="10" fill="#F57F17"/>
-  <text x="260" y="752" text-anchor="middle" fill="#fff" font-size="13" font-weight="bold">⚖️ Load Balancer</text>
-  <text x="260" y="770" text-anchor="middle" fill="#fff" font-size="11">distributes traffic</text>
+  <rect x="160" y="784" width="200" height="52" rx="10" fill="#F57F17"/>
+  <text x="260" y="805" text-anchor="middle" fill="#fff" font-size="13" font-weight="bold">⚖️ Load Balancer</text>
+  <text x="260" y="823" text-anchor="middle" fill="#fff" font-size="11">distributes traffic</text>
 
-  <line x1="260" y1="783" x2="260" y2="804" stroke="#555" stroke-width="2"/>
-  <polygon points="260,811 255,801 265,801" fill="#555"/>
+  <line x1="260" y1="836" x2="260" y2="857" stroke="#555" stroke-width="2"/>
+  <polygon points="260,864 255,854 265,854" fill="#555"/>
 
   <!-- Users -->
-  <rect x="160" y="811" width="200" height="52" rx="10" fill="#7B1FA2"/>
-  <text x="260" y="832" text-anchor="middle" fill="#fff" font-size="13" font-weight="bold">🌍 Users</text>
-  <text x="260" y="850" text-anchor="middle" fill="#CE93D8" font-size="11">worldwide</text>
+  <rect x="160" y="864" width="200" height="52" rx="10" fill="#7B1FA2"/>
+  <text x="260" y="885" text-anchor="middle" fill="#fff" font-size="13" font-weight="bold">🌍 Users</text>
+  <text x="260" y="903" text-anchor="middle" fill="#CE93D8" font-size="11">worldwide</text>
 
 </svg>
