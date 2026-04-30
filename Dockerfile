@@ -17,6 +17,9 @@ RUN npm run build
 # No Node.js, no npm, no source code — just static files served by nginx
 FROM nginx:alpine
 
+# Upgrade Alpine packages to get patched versions of libcrypto3 and libssl3
+RUN apk upgrade --no-cache
+
 COPY --from=builder /app/dist /usr/share/nginx/html
 
 EXPOSE 80
