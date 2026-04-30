@@ -20,3 +20,5 @@ jobs:
     needs: [build]
     uses: ./.github/workflows/image-scan.yml
     secrets: inherit
+    with:
+      image-name: ${{ vars.DOCKER_HUB_USERNAME }}/vue-tracker-app:${{ github.sha }}
