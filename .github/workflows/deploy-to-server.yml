@@ -5,7 +5,6 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Copy docker compose file
       - name: SSH to Pro server
         uses: appleboy/ssh-action@v1.0.3
         with:
