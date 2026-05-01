@@ -5,7 +5,9 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: SSH to Pro server
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: SSH to Pro server && create devops directory
         uses: appleboy/ssh-action@v1.0.3
         with:
           host: ${{ secrets.EC2_SSH_HOST }}
@@ -14,3 +16,24 @@ jobs:
           script: |
             echo "Deploying application on Pro server..."
             mkdir -p devops
+      - name: Copy the docker compose file
+        uses: appleboy/scp-action@v1
+        with:
+          host: ${{ secrets.EC2_SSH_HOST }}
+          username: ${{ secrets.EC2_SSH_USER }}
+          key: ${{ secrets.EC2_SSH_PRIVATE_KEY }}
+          source: "docker-compose.yml"
+          target: "~/devops"
+      - name: SSH to Pro server && run the app
+        uses: appleboy/scp-action@v1
+        with:
+          host: ${{ secrets.EC2_SSH_HOST }}
+          username: ${{ secrets.EC2_SSH_USER }}
+          key: ${{ secrets.EC2_SSH_PRIVATE_KEY }}
+          script: |
+            echo "Starting application on Pro server..."
+            sudo apt-get install docker.io docker-compose-v2 -y
+            sudo usermod -aG docker $USER && newgrp docker
+            export DOCKERHUB_USERNAME=${{ vars.DOCKER_HUB_USERNAME }}
+            echo ${{ secrets.DOCKER_HUB_TOKEN }} | docker login -u ${{ secrets.DOCKER_HUB_USERNAME }} --password-stdin
+            cd ~/devops && docker compose down && docker compose up -d --build --force recreate --pull always
