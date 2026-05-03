@@ -32,7 +32,7 @@ jobs:
           key: ${{ secrets.EC2_SSH_PRIVATE_KEY }}
           script: |
             echo "Starting application on Pro server..."
-            sudo apt-get install docker.io docker-compose-v2 -y
+            sudo apt-get update && sudo apt-get install docker.io docker-compose-v2 -y
             sudo usermod -aG docker $USER && newgrp docker
             export DOCKERHUB_USERNAME=${{ vars.DOCKER_HUB_USERNAME }}
             echo ${{ secrets.DOCKER_HUB_TOKEN }} | docker login -u ${{ secrets.DOCKER_HUB_USERNAME }} --password-stdin
