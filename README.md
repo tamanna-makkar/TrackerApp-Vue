@@ -1,29 +1,68 @@
-# .
+# DevSecOps CI/CD Pipeline
 
-This template should help get you started developing with Vue 3 in Vite.
+This repository is a fork of the original project and has been enhanced with a complete DevSecOps CI/CD pipeline implementation using GitHub Actions, Docker, and security scanning tools.
 
-## Recommended IDE Setup
+## 🚀 Pipeline Overview
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+The pipeline automates:
 
-## Customize configuration
+- Code quality checks
+- Static Application Security Testing (SAST)
+- Secret scanning
+- Dependency vulnerability scanning
+- Docker linting
+- Docker image build & push
+- Container image vulnerability scanning
+- Deployment workflow
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+---
 
-## Project Setup
+## 🔄 CI/CD Workflow Stages
 
-```sh
-npm install
-```
+### ✅ Code Quality & Security Checks
 
-### Compile and Hot-Reload for Development
+The pipeline performs multiple validation and security stages before deployment:
 
-```sh
-npm run dev
-```
+- **Lint** → Ensures code quality and formatting
+- **SAST - CodeQL** → Static security analysis using GitHub CodeQL
+- **Secret Scan** → Detects exposed secrets or credentials
+- **Dependency Scan** → Checks vulnerable dependencies
+- **Docker Lint** → Validates Dockerfile best practices
 
-### Compile and Minify for Production
+---
 
-```sh
-npm run build
-```
+### 🐳 Build & Push
+
+- Builds the Docker image
+- Pushes the image to the configured container registry
+
+---
+
+### 🔍 Trivy Image Scan
+
+- Scans Docker images for vulnerabilities using Trivy
+- Helps ensure secure container deployments
+
+---
+
+### 🚀 Deployment
+
+- Automated deployment stage integrated into the pipeline
+
+---
+
+## 🛠️ Technologies Used
+
+- GitHub Actions
+- Docker
+- Docker Compose
+- Trivy
+- CodeQL
+- DevSecOps Practices
+
+---
+
+## 📂 Pipeline File
+
+```bash
+.github/workflows/devsecops-pipeline.yml
