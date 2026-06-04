@@ -2,4 +2,4 @@ services:
   web:
     image: ${DOCKERHUB_USERNAME}/vue-tracker-app:main
     ports:
-      - "4173:4173"
+      - "4173:${CONTAINER_PORT:-4173}"
